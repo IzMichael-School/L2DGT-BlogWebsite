@@ -79,7 +79,7 @@
         <h3 class="w-full mt-1 text-lg font-medium text-center">{dayjs(post.publishedAt).format('dddd, Do MMMM YYYY - HH:mm a')}</h3>
 
         <!-- Post content, styled with GFM -->
-        <div id="postContent" class="markdown-body w-full py-10" style="font-size: {$postStyle.fontSize}; font-family: {$postStyle.fontFamily};">
+        <div id="postContent" class="markdown-body w-full py-10" bind:this={content} style="font-size: {$postStyle.fontSize}; font-family: {$postStyle.fontFamily};">
             <!-- eslint-disable-next-line svelte/no-at-html-tags -->
             {@html data.content}
         </div>
