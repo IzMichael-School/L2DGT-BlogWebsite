@@ -3,16 +3,25 @@
         "browser": true,
         "es2021": true
     },
-    "extends": ["plugin:svelte/recommended", "eslint:recommended", "prettier"],
+    "extends": [
+        "plugin:svelte/recommended",
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "prettier"
+    ],
+    "parser": "@typescript-eslint/parser",
     "parserOptions": {
+        "project": "./tsconfig.json",
         "ecmaVersion": "latest",
-        "sourceType": "module"
+        "sourceType": "module",
+        "extraFileExtensions": [".svelte"]
     },
     "rules": {
         "indent": ["error", 4],
         "linebreak-style": ["error", "windows"],
         "quotes": ["error", "single"],
         "semi": ["error", "always"],
+        "no-inner-declarations": ["off"],
         "tailwindcss/classnames-order": "warn",
         "tailwindcss/enforces-negative-arbitrary-values": "warn",
         "tailwindcss/enforces-shorthand": "warn",
@@ -21,11 +30,15 @@
         "tailwindcss/no-custom-classname": "warn",
         "tailwindcss/no-contradicting-classname": "error"
     },
-    "plugins": ["tailwindcss"],
+    "plugins": ["tailwindcss", "@typescript-eslint"],
     "overrides": [
         {
             "files": ["*.svelte"],
-            "parser": "svelte-eslint-parser"
+            "parser": "svelte-eslint-parser",
+            "parserOptions": {
+                "parser": "@typescript-eslint/parser"
+            }
         }
-    ]
+    ],
+    "root": true
 }
