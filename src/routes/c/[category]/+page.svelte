@@ -30,19 +30,11 @@
         {/if}
     </div>
 
-    <div class="flex flex-col justify-start items-center flex-1 h-full gap-3 max-h-full overflow-auto pr-2">
+    <div class="flex flex-col justify-start items-center flex-1 h-full gap-3 max-h-full overflow-y-scroll pr-2">
         <div class="bg-white sticky top-0 w-full pb-2 -mb-1">
             <input class="p-2 rounded-lg w-full bg-gray-200 border-2 border-gray-600" placeholder="Search for a Post..." type="text" />
         </div>
         {#each data.posts as post}
-            <ListedPost {post} on:select={() => selected = post} />
-            <ListedPost {post} on:select={() => selected = post} />
-            <ListedPost {post} on:select={() => selected = post} />
-            <ListedPost {post} on:select={() => selected = post} />
-            <ListedPost {post} on:select={() => selected = post} />
-            <ListedPost {post} on:select={() => selected = post} />
-            <ListedPost {post} on:select={() => selected = post} />
-            <ListedPost {post} on:select={() => selected = post} />
             <ListedPost {post} on:select={() => selected = post} />
         {/each}
     </div>
