@@ -1,3 +1,48 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+    transition-property: all;
+    transition-duration: 300ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+    font-family: 'IBM Plex Sans';
+}
+
+.wrap-long {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    /* hyphens: auto; */
+}
+
+.active-heading {
+    --hl-color: #6a7fdb;
+    box-shadow: 0px 0px 5px 0.5rem var(--hl-color);
+    -moz-box-shadow: 0px 0px 5px 0.5rem var(--hl-color);
+    -webkit-box-shadow: 0px 0px 5px 0.5rem var(--hl-color);
+    background-color: var(--hl-color);
+    color: #ffffff;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 9999px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
