@@ -1,1 +1,3 @@
-<h1 class="text-6xl font-bold">FOOTER</h1>
+<div class="flex flex-row justify-start items-center p-10">
+    
+</div>

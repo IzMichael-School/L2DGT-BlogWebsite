@@ -3,13 +3,9 @@
 </svelte:head>
 
 <script lang="ts">
-    import Header from '$lib/Header.svelte';
-    import Footer from '$lib/Footer.svelte';
+    import { anchors } from '$lib/stores';
+    $anchors = [];
 </script>
-
-<Header />
-
-<Footer />
 
 <style>
     
