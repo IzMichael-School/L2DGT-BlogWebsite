@@ -20,7 +20,7 @@ export interface Category {
     id: string,
     name: string,
     color: string,
-    path: string
+    slug: string
 };
 
 export interface DBUser {
@@ -41,10 +41,11 @@ export interface Comment {
 };
 
 export interface LoadObject {
-    params: {
+    params?: {
         slug?: string,
         category?: string
-    }
+    },
+    url?: URL
 };
 
 export interface Anchor {
