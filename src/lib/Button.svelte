@@ -1,8 +1,8 @@
 <script lang="ts">
-    export let label: string, click: () => void;
+    export let label: string, click: () => void, color = '#1B998B';
 </script>
 
-<button class="btn p-2 hover:bg-blue-500 rounded-lg w-full text-left" on:click={click}>{label}</button>
+<button class="btn hover:bg-blue-500 bg-slate-300 shrink-0 w-full p-2 text-left rounded-lg" style="--btn-color: {color};" on:click={click}>{label}</button>
 
 <style>
     .btn {
@@ -26,7 +26,7 @@
         content: '';
         position: absolute;
         inset: 0;
-        background-color: #1B998B;
+        background-color: var(--btn-color);
         transform: translateX(-100%);
         transition-property: all;
         transition-duration: 500ms;
