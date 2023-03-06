@@ -1,10 +1,11 @@
 import { pb } from '$lib/stores';
-import type { Category } from '$lib/types';
+import type { Category, LoadObject } from '$lib/types';
 
-export async function load() {
+export async function load({ url }: LoadObject) {
     const categorylist = await pb.collection('categories').getFullList<Category>(400);
     const categories: Category[] = categorylist.map(a => { return {...a}; });
     return {
-        categories: [...categories]
+        categories: [...categories],
+        currentPath: url?.pathname
     };
 };
