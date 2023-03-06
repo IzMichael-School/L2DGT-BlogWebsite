@@ -1,5 +1,6 @@
 <script lang="ts">
     import { goto } from '$app/navigation';
+    import {page} from '$app/stores';
     export let title: string, color: string, url: string;
 
     // Colours
@@ -39,7 +40,11 @@
     };
 </script>
 
-<button class="p-2 h-12 self-end px-10 rounded-t-xl min-w-fit flex-1 ml-4 font-bold" style="background-color: {color}; color: {invertColor(color)};" on:click={() => goto(url)}>{title}</button>
+<button class="rounded-t-xl min-w-fit self-end flex-1 h-12 p-2 px-10 ml-4 font-bold {$page.url.pathname == url ? 'shadow-inner' : ''}" style="background-color: {$page.url.pathname == url ? 'rgb(241, 245, 249)' : color}; color: {$page.url.pathname == url ? '#000000' : invertColor(color)};" on:click={() => {
+    console.log('clicked');
+    goto(url);
+}}>{title}</button>
+<!-- <a class="rounded-t-xl min-w-fit self-end flex-1 h-12 p-2 px-10 ml-4 font-bold {$page.url.pathname == url ? 'shadow-inner' : ''}" style="background-color: {$page.url.pathname == url ? 'rgb(241, 245, 249)' : color}; color: {$page.url.pathname == url ? '#000000' : invertColor(color)};" href={url}>{title}</a> -->
 
 <style>
     
