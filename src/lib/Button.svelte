@@ -27,7 +27,7 @@
         position: absolute;
         inset: 0;
         background-color: var(--btn-color);
-        transform: translateX(-100%);
+        transform: translateX(-101%);
         transition-property: all;
         transition-duration: 500ms;
         transition-timing-function: ease-in-out;

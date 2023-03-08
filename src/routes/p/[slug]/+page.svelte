@@ -39,7 +39,7 @@
 <div class="bg-salt flex flex-col items-center justify-start w-full">
     <div class="lg:w-2/3 lg:px-0 w-full h-full px-5 pt-10">
         <figure>
-            <img src="https://l2dgt-blog-db.school.izmichael.com/api/files/posts/{post.id}/{post.image}" class="aspect-auto w-full rounded-lg" title={post.imageAlt} alt={post.imageAlt}>
+            <img src="https://l2dgt-blog-db.school.izmichael.com/api/files/posts/{post.id}/{post.image}" class="max-h-[50vh] max-w-full mx-auto rounded-lg" title={post.imageAlt} alt={post.imageAlt}>
             <figcaption class="mt-2 italic font-bold text-gray-500">{post.imageCaption}</figcaption>
         </figure>
         <h1 class="w-full mt-5 text-3xl font-bold text-center" bind:this={titleEl}>{post.title}</h1>

@@ -41,7 +41,6 @@
 </script>
 
 <button class="rounded-t-xl min-w-fit self-end flex-1 h-12 p-2 px-10 ml-4 font-bold {$page.url.pathname == url ? 'shadow-inner' : ''}" style="background-color: {$page.url.pathname == url ? 'rgb(241, 245, 249)' : color}; color: {$page.url.pathname == url ? '#000000' : invertColor(color)};" on:click={() => {
-    console.log('clicked');
     goto(url);
 }}>{title}</button>
 <!-- <a class="rounded-t-xl min-w-fit self-end flex-1 h-12 p-2 px-10 ml-4 font-bold {$page.url.pathname == url ? 'shadow-inner' : ''}" style="background-color: {$page.url.pathname == url ? 'rgb(241, 245, 249)' : color}; color: {$page.url.pathname == url ? '#000000' : invertColor(color)};" href={url}>{title}</a> -->
