@@ -16,8 +16,13 @@
     <h1 class="text-6xl font-bold">{$page.status} - {err}</h1>
     <h2 class="mt-1 text-2xl">Check your URL again, or <a href="/">Return Home</a>.</h2>
     {/if}
+
+    <h2 class="mt-16 text-2xl">Should this have worked? <a href="mailto:dgt-blog@izmichael.com?subject={encodeURIComponent('DGT Blog - Unexpected Error')}&cc=bugs@izmichael.com&body={encodeURIComponent('Hi! I tried to load ' + $page.url.toString() + ', but it gave me an error.')}">Email me at dgt-blog@izmichael.com</a>.</h2>
 </div>
 
 <style>
-    
+    a {
+        color: rgb(106, 127, 219);
+        font-weight: 600;
+    }
 </style>
