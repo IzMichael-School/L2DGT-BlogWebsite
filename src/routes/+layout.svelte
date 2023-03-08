@@ -26,11 +26,17 @@
         height: number
     };
 
+    interface BodySize {
+        height: number,
+        viewport: number
+    };
+
     let scrollIndicator: ScrollIndicatorPos = {
         top: 0,
         left: 'unset',
         height: 0
-    }, anchorBtns: HTMLDivElement, body: HTMLDivElement, scrollable: boolean;
+    }, anchorBtns: HTMLDivElement,
+        body: HTMLDivElement;
 
     function checkScroll() {
         if (browser && $anchors.length > 0 && anchorBtns?.children.length > 0) {
@@ -59,16 +65,6 @@
             attributes: true,
             characterData: true
         });
-
-        // Scrollbar Boolean Checker
-
-        scrollable = body?.scrollHeight > body?.clientHeight;
-        let bodyObserver = new MutationObserver(() => { scrollable = body?.scrollHeight > body?.clientHeight; checkScroll(); });
-        bodyObserver.observe(body, {
-            childList: true,
-            attributes: true,
-            characterData: true
-        });
     });
 
     if (browser) {
@@ -78,11 +74,10 @@
     function remPx(rem: number) {    
         return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
     };
-    console.log('loaded');
 </script>
 
 <div class="flex flex-col items-center justify-center w-screen h-screen max-h-screen overflow-hidden">
-    <div id="header" class="bg-slate-100 flex flex-row items-center justify-start w-full h-16 pr-4">
+    <div id="header" class="bg-slate-100 z-50 flex flex-row items-center justify-start w-full h-16 pr-4 shadow-md">
         <button class="aspect-square relative w-16 h-16 mr-2 border-r-2 border-gray-200" on:click={() => $darkmode = !$darkmode}>
             {#if $darkmode}
                 <img src="/assets/icons/moon.svg" transition:fade class="aspect-square absolute inset-0 w-8 h-8 m-4" alt="Moon Icon" />
@@ -99,8 +94,8 @@
             <HeaderTab title={category.name} color={category.color} url="/c/{category.slug}" />
         {/each}
     </div>
-    <div class="flex flex-row items-center justify-center flex-1 w-full max-h-full overflow-hidden">
-        <div id="sidebar" class="bg-slate-100 flex flex-col items-center justify-between {scrollable ? 'w-16 border-r-2' : 'w-0 border-r-0'} overflow-hidden h-full border-gray-200">
+    <div class="flex flex-row items-center justify-center flex-1 w-full max-h-full overflow-y-auto">
+        <div id="sidebar" class="bg-slate-100 flex flex-col items-center justify-between max-h-full overflow-y-scroll overflow-x-hidden h-full border-gray-200 {$anchors.length > 0 ? 'w-16' : 'w-0'}">
             <button class="aspect-square w-16 h-16 p-2" on:click={() => document.getElementById('anchor-top')?.scrollIntoView({
                 behavior: 'smooth',
                 block: 'center',
@@ -140,7 +135,8 @@
             <span id="anchor-top" class="invisible block h-0 px-1 overflow-hidden" />
             {#key data.currentPath}
                 <!-- <div class="w-full h-full" in:fly|local={{ x: body.scrollWidth, duration: 1000, delay: 1000 }} out:fly|local={{ x: body.scrollWidth, duration: 1000 }}> -->
-                <div class="w-full h-full" in:fly|local={{ x: 256, duration: 750, delay: 750 }} out:fly|local={{ x: 256, duration: 750 }}>
+                <div class="w-full h-full overflow-x-hidden {$navigating ? 'z-[-100]' : 'z-0'}" in:fly|local={{ y: -body.scrollHeight, duration: 750, delay: 750 }} out:fly|local={{ y: -body.scrollHeight, duration: 750 }}>
+                <!-- <div class="w-full h-full" in:fly|local={{ x: 256, duration: 750, delay: 750 }} out:fly|local={{ x: 256, duration: 750 }}></div> -->
                 <!-- <div class="w-full h-full" transition:fade|local> -->
                 <!-- <div class="w-full h-full"> -->
                         <slot />
@@ -152,10 +148,10 @@
 </div>
 
 {#if $navigating}
-    <div class="w-screen h-screen overflow-hidden flex justify-center items-center absolute inset-0 z-[0]">
+    <div class="w-screen h-screen overflow-hidden flex justify-center items-center absolute inset-0 z-[1000] bg-black/50">
         <div class="aspect-square p-10 h-1/2 rounded-lg overflow-hidden z-[1000000000000] bg-white shadow-2xl flex flex-col justify-center items-center" transition:fade|local>
             <Spinner />
-            <h1 class="text-6xl mt-10 font-inter">Loading...</h1>
+            <h1 class="font-inter mt-10 text-6xl">Loading...</h1>
         </div>
     </div>
 {/if}
