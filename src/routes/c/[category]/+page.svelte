@@ -10,7 +10,6 @@
     dayjs.extend(advancedFormat);
 
     import ListedPost from '$lib/ListedPost.svelte';
-    import sanitizeHtml from 'sanitize-html';
 
     import '/src/gfm.css';
 
@@ -57,9 +56,9 @@
 
     <div class="flex flex-col items-center justify-start flex-1 h-full max-h-full gap-3 pr-2 overflow-y-scroll">
         <div class="bg-salt sticky top-0 w-full pb-2 -mb-1">
-            <label id="searchWrapper" for="search" class="h-11 group flex flex-row items-center justify-start w-full overflow-hidden bg-gray-100 border-2 border-gray-600 rounded-lg hover:bg-gray-200" style="--input-border: {data.category.color};">
+            <label id="searchWrapper" for="search" class="h-11 group hover:bg-gray-200 flex flex-row items-center justify-start w-full overflow-hidden bg-gray-100 border-2 border-gray-600 rounded-lg" style="--input-border: {data.category.color};">
                 <img src="/assets/icons/search.svg" alt="Search Icon" class="aspect-square w-6 h-6 ml-2" />
-                <input id="search" class="flex-1 p-2 bg-gray-100 group-hover:bg-gray-200" placeholder="Search for a Post..." type="text" bind:value={search} spellcheck="false" />
+                <input id="search" class="group-hover:bg-gray-200 flex-1 p-2 bg-gray-100" placeholder="Search for a Post..." type="text" bind:value={search} spellcheck="false" />
                 <button class="{search?.length > 0 ? 'w-7' : 'w-0'} hover:bg-gray-200 h-full overflow-hidden cursor-pointer" on:click={() => search = ''}>
                     <img src="/assets/icons/cross.svg" alt="Cross Icon" class="aspect-square w-5 h-5 mx-1 overflow-hidden cursor-pointer" />
                 </button>

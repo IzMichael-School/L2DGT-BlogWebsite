@@ -5,7 +5,6 @@
 <script lang="ts">
     export let data: Post;
     let post: Post = data;
-    import sanitizeHtml from 'sanitize-html';
     import dayjs from 'dayjs';
     import advancedFormat from 'dayjs/plugin/advancedFormat';
     dayjs.extend(advancedFormat);
