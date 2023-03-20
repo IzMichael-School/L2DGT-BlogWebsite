@@ -5,6 +5,8 @@ module.exports = {
         extend: {
             colors: {
                 'salt': '#FAFAFA',
+                'parchment': '#F1E9D2',
+                'dark-parchment': '#C1B48A',
                 'grey': '#8B929E',
                 'navy': '#1B2A41',
                 'red': '#984447',
@@ -14,7 +16,9 @@ module.exports = {
         },
         fontFamily: {
             sans: ['IBM Plex Sans', 'sans-serif'],
-            inter: ['Inter', 'sans-serif']
+            inter: ['Inter', 'sans-serif'],
+            playfair: ['Playfair Display', 'serif'],
+            robotomono: ['Roboto Mono', 'monospace'],
         },
     },
     plugins: [],
