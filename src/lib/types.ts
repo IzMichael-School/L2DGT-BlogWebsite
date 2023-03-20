@@ -30,6 +30,11 @@ export interface DBUser {
     created: Date
 };
 
+export interface Author extends DBUser {
+    avatar: string,
+    bio: string
+};
+
 export interface Comment {
     id: string,
     content: string,
