@@ -26,11 +26,6 @@
         height: number
     };
 
-    interface BodySize {
-        height: number,
-        viewport: number
-    };
-
     let scrollIndicator: ScrollIndicatorPos = {
         top: 0,
         left: 'unset',
@@ -76,7 +71,7 @@
     };
 </script>
 
-<div class="flex flex-col items-center justify-center w-screen h-screen max-h-screen overflow-hidden">
+<div id="site" class="flex flex-col items-center justify-center w-screen h-screen max-h-screen overflow-hidden font-sans">
     <div id="header" class="bg-slate-100 z-50 flex flex-row items-center justify-start w-full h-16 pr-4 shadow-md">
         <button class="aspect-square relative w-16 h-16 mr-2 border-r-2 border-gray-200" on:click={() => $darkmode = !$darkmode}>
             {#if $darkmode}
@@ -135,7 +130,7 @@
             <span id="anchor-top" class="invisible block h-0 px-1 overflow-hidden" />
             {#key data.currentPath}
                 <!-- <div class="w-full h-full" in:fly|local={{ x: body.scrollWidth, duration: 1000, delay: 1000 }} out:fly|local={{ x: body.scrollWidth, duration: 1000 }}> -->
-                <div class="w-full h-full overflow-x-hidden {$navigating ? 'z-[-100]' : 'z-0'}" in:fly|local={{ y: -body.scrollHeight, duration: 750, delay: 750 }} out:fly|local={{ y: -body.scrollHeight, duration: 750 }}>
+                <div id="body" class="w-full h-full overflow-x-hidden {$navigating ? 'z-[-100]' : 'z-0'}" in:fly|local={{ y: -body.scrollHeight, duration: 750, delay: 750 }} out:fly|local={{ y: -body.scrollHeight, duration: 750 }}>
                 <!-- <div class="w-full h-full" in:fly|local={{ x: 256, duration: 750, delay: 750 }} out:fly|local={{ x: 256, duration: 750 }}></div> -->
                 <!-- <div class="w-full h-full" transition:fade|local> -->
                 <!-- <div class="w-full h-full"> -->
