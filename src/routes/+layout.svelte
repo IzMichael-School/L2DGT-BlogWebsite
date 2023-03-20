@@ -73,13 +73,7 @@
 
 <div id="site" class="flex flex-col items-center justify-center w-screen h-screen max-h-screen overflow-hidden font-sans">
     <div id="header" class="bg-slate-100 z-50 flex flex-row items-center justify-start w-full h-16 pr-4 shadow-md">
-        <button class="aspect-square relative w-16 h-16 mr-2 border-r-2 border-gray-200" on:click={() => $darkmode = !$darkmode}>
-            {#if $darkmode}
-                <img src="/assets/icons/moon.svg" transition:fade class="aspect-square absolute inset-0 w-8 h-8 m-4" alt="Moon Icon" />
-            {:else}
-                <img src="/assets/icons/sun.svg" transition:fade class="aspect-square absolute inset-0 w-8 h-8 m-4" alt="Sun Icon" />
-            {/if}
-        </button>
+        <div class="aspect-square relative mr-2 h-16 border-gray-200 {$anchors.length > 0 ? 'w-16 border-r-2' : 'w-0 border-r-0'}"></div>
         
         <img src="/favicon.png" class="aspect-square w-12 h-12 rounded-lg" alt="Favicon" />
         <h1 class="ml-4 mr-10 text-4xl font-bold">Iz's Devlog</h1>
