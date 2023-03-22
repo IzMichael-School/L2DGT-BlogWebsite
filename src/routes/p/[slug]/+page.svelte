@@ -25,8 +25,7 @@
         wrapper: HTMLDivElement,
         anchorlist: HTMLElement[] = [],
         titleEl: HTMLHeadingElement,
-        options = true;
-        // options = false;
+        options = false;
 
     onMount(() => {
         anchorlist = [titleEl, ...content.querySelectorAll<HTMLElement>('h1, h2, h3, h4, h5, h6')];
