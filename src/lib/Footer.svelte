@@ -13,7 +13,7 @@
 </script>
 
 <div class="flex flex-row justify-start items-center w-full h-[4.5rem] bg-slate-100 border-t-2 border-gray-200">
-    <h1 class="flex-1 px-5 text-2xl text-left">&copy; IzMichael 2023 - Produced for L2-DGT</h1>
+    <a class="flex-1 px-5 text-2xl text-left hover:underline" href="https://izmichael.com/">&copy; IzMichael 2023 - Produced for L2-DGT</a>
 
     <div id="social-gradient" class="flex flex-row items-center justify-around flex-1 h-full px-[2%] gap-[2%]">
         {#each socials as link}
