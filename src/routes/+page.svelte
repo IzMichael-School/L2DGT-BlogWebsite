@@ -1,5 +1,5 @@
 <svelte:head>
-    <title>Iz's Devlog</title>
+    <title>Iz's Blog</title>
 </svelte:head>
 
 <script lang="ts">

@@ -1,5 +1,5 @@
 <svelte:head>
-    <title>Iz's Devlog: {data.category.name}</title>
+    <title>Iz's Blog: {data.category.name}</title>
 </svelte:head>
 
 <script lang="ts">
@@ -35,7 +35,7 @@
 </script>
 
 <div class="flex flex-row items-center justify-center w-full h-full max-h-full p-10 overflow-hidden">
-    <div class="flex flex-col justify-start items-center overflow-hidden flex-1 mr-5 h-full max-w-[50%] bg-slate-200 rounded-lg shadow-lg p-2">
+    <div id="preview" class="flex flex-col justify-start items-center overflow-hidden flex-1 mr-5 h-full max-w-[50%] bg-slate-200 rounded-lg shadow-lg p-2">
         {#if selected?.id}
             <div class="flex flex-col items-center justify-start flex-1 w-full max-h-full p-3 overflow-hidden text-left">
                 <img src="https://l2dgt-blog-db.school.izmichael.com/api/files/posts/{selected.id}/{selected.image}" class="rounded-lg max-h-[75%]" title={selected.imageAlt} alt={selected.imageAlt} />

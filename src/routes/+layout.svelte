@@ -5,7 +5,7 @@
     import '../fonts.css';
 
     import { fade, fly } from 'svelte/transition';
-    import { darkmode, anchors } from '$lib/stores';
+    import { anchors } from '$lib/stores';
     import type { Category } from '$lib/types';
     import { navigating } from '$app/stores';
     import { browser } from '$app/environment';
@@ -76,7 +76,7 @@
         <div class="aspect-square relative mr-2 h-16 border-gray-200 {$anchors.length > 0 ? 'w-16 border-r-2' : 'w-0 border-r-0'}"></div>
         
         <img src="/favicon.png" class="aspect-square w-12 h-12 rounded-lg" alt="Favicon" />
-        <h1 class="ml-4 mr-10 text-4xl font-bold">Iz's Devlog</h1>
+        <h1 class="ml-4 mr-10 text-4xl font-bold">Iz's Blog</h1>
 
         <HeaderTab title="Home" color="#3b82f6" url="/" />
         {#each (data.categories ?? []) as category}

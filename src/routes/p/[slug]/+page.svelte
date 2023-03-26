@@ -1,5 +1,5 @@
 <svelte:head>
-    <title>Iz's Devlog: {data.title}</title>
+    <title>Iz's Blog: {data.title}</title>
 </svelte:head>
 
 <script lang="ts">
@@ -28,11 +28,12 @@
         options = false;
 
     onMount(() => {
+        let numbers = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
         anchorlist = [titleEl, ...content.querySelectorAll<HTMLElement>('h1, h2, h3, h4, h5, h6')];
         anchorlist.filter(i => i?.id);
         $anchors = anchorlist.map(a => {
             let text = a.innerText || a.textContent || a.innerHTML;
-            a.id = text.toLowerCase().replaceAll(' ', '-').replaceAll(/[\u{0080}-\u{FFFF}]/gu, '');
+            a.id = text.toLowerCase().replaceAll(' ', '-').replaceAll(/[\u{0080}-\u{FFFF}]/gu, '').split('').map(val => numbers[val] || val).join('');
             return {
                 id: a.id,
                 name: text,
@@ -52,7 +53,7 @@
         <h3 class="w-full mt-1 text-lg font-medium text-center">By {post.expand.author.username} - {post.expand.category.name}</h3>
         <h3 class="w-full mt-1 text-lg font-medium text-center">{dayjs(post.publishedAt).format('dddd, Do MMMM YYYY - HH:mm a')}</h3>
 
-        <div class="markdown-body w-full py-10" bind:this={content}>
+        <div id="postContent" class="markdown-body w-full py-10" bind:this={content}>
             <!-- eslint-disable-next-line svelte/no-at-html-tags -->
             {@html data.content}
         </div>

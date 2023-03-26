@@ -1,5 +1,5 @@
 <svelte:head>
-    <title>Iz's Devlog: Error {$page.status}</title>
+    <title>Iz's Blog: Error {$page.status}</title>
 </svelte:head>
 
 <script lang="ts">
