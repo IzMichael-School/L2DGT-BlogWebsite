@@ -1,3 +1,23 @@
+<svelte:head>
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Iz's Blog">
+    <meta name="description" content="A demo blog created for the L2-DGT class at Kingsway School.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://l2dgt-blog.school.izmichael.com/">
+    <meta property="og:title" content="Iz's Blog">
+    <meta property="og:description" content="A demo blog created for the L2-DGT class at Kingsway School.">
+    <meta property="og:image" content="/assets/img/cover.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://l2dgt-blog.school.izmichael.com/">
+    <meta property="twitter:title" content="Iz's Blog">
+    <meta property="twitter:description" content="A demo blog created for the L2-DGT class at Kingsway School.">
+    <meta property="twitter:image" content="/assets/img/cover.png">
+</svelte:head>
+
 <script lang="ts">
     import HeaderTab from '../lib/HeaderTab.svelte';
 
