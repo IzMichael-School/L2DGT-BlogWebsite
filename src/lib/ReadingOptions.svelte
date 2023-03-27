@@ -35,7 +35,7 @@
         <div class="flex flex-row justify-center items-center w-full gap-10">
             <div class="flex flex-col justify-start items-center h-full flex-1">
                 {#if mdWrapper}
-                <h1 class="text-xl font-bold mb-3">Page Colour</h1>
+                <h2 class="text-xl font-bold mb-3">Page Colour</h2>
                 {#each bgColors as color}
                     <button class="p-2 hover:bg-gray-200 active:bg-gray-300 rounded-lg flex flex-row justify-center items-center w-full" on:click={() => mdWrapper.style.backgroundColor = color.value}>
                         <span class="w-8 h-8 mr-2 rounded-md aspect-square border-2 border-gray-300" style="background-color: {color.value};"></span>
@@ -46,7 +46,7 @@
             </div>
             <div class="flex flex-col justify-start items-center h-full flex-1">
                 {#if mdBody}
-                <h1 class="text-xl font-bold mb-3">Font Size</h1>
+                <h2 class="text-xl font-bold mb-3">Font Size</h2>
                 {#each fontSizes as size}
                     <button class="p-2 hover:bg-gray-200 active:bg-gray-300 rounded-lg flex flex-row justify-center items-center w-full" on:click={() => mdBody.style.fontSize = size.value}>
                         <span class="w-14 h-14 flex flex-col justify-center items-center mr-2 rounded-md aspect-square border-2 border-gray-300 bg-gray-100" style="font-size: {size.value};">Aa</span>
@@ -57,7 +57,7 @@
             </div>
             <div class="flex flex-col justify-start items-center h-full flex-1">
                 {#if mdBody}
-                <h1 class="text-xl font-bold mb-3">Font Style</h1>
+                <h2 class="text-xl font-bold mb-3">Font Style</h2>
                 {#each fonts as font}
                     <button class="p-2 hover:bg-gray-200 active:bg-gray-300 rounded-lg flex flex-row justify-center items-center w-full" on:click={() => mdBody.style.fontFamily = `${font.value}, ${font.fallback}`} style="font-family: {font.value}, {font.fallback};">
                         <span class="w-8 h-8 flex flex-col justify-center items-center mr-2 rounded-md aspect-square border-2 border-gray-300 bg-gray-100">Aa</span>
@@ -67,7 +67,7 @@
                 {/if}
 
                 {#if mdParent}
-                <h1 class="text-xl font-bold mb-3 mt-7">Page Width</h1>
+                <h2 class="text-xl font-bold mb-3 mt-7">Page Width</h2>
                 {#each pageWidths as width}
                     <button class="p-2 hover:bg-gray-200 active:bg-gray-300 rounded-lg flex flex-row justify-center items-center w-full" on:click={() => mdParent.style.width = width.value}>
                         <span class="w-8 h-8 flex flex-col justify-center items-center mr-2 rounded-md aspect-square border-2 border-gray-300 bg-gray-100">{width.symbol}</span>

@@ -40,8 +40,8 @@
             <div class="flex flex-col items-center justify-start flex-1 w-full max-h-full p-3 overflow-hidden text-left">
                 <img src="https://l2dgt-blog-db.school.izmichael.com/api/files/posts/{selected.id}/{selected.image}" class="rounded-lg max-h-[75%]" title={selected.imageAlt} alt={selected.imageAlt} />
                 
-                <h2 class="w-full mt-5 text-2xl font-bold">{selected.title}</h2>
-                <h3 class="w-full text-lg font-medium">By {selected.expand.author.username} - {selected.expand.category.name}</h3>
+                <h1 class="w-full mt-5 text-2xl font-bold">{selected.title}</h1>
+                <h2 class="w-full text-lg font-medium">By {selected.expand.author.username} - {selected.expand.category.name}</h2>
                 <h3 class="w-full mb-5 text-lg font-medium">{dayjs(selected.publishedAt).format('MMM Do, YYYY - HH:mm a')}</h3>
             
                 <div id="previewContent" class="markdown-body overflow-ellipsis flex-1 w-full overflow-hidden">

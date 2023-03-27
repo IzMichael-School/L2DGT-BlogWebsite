@@ -50,7 +50,7 @@
             <figcaption class="mt-2 italic font-bold text-gray-500">{post.imageCaption}</figcaption>
         </figure>
         <h1 class="w-full mt-5 text-3xl font-bold text-center" bind:this={titleEl}>{post.title}</h1>
-        <h3 class="w-full mt-1 text-lg font-medium text-center">By {post.expand.author.username} - {post.expand.category.name}</h3>
+        <h2 class="w-full mt-1 text-lg font-medium text-center">By {post.expand.author.username} - {post.expand.category.name}</h2>
         <h3 class="w-full mt-1 text-lg font-medium text-center">{dayjs(post.publishedAt).format('dddd, Do MMMM YYYY - HH:mm a')}</h3>
 
         <div id="postContent" class="markdown-body w-full py-10" bind:this={content}>
