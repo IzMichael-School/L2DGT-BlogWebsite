@@ -16,6 +16,9 @@
     <meta property="twitter:title" content="Iz's Blog">
     <meta property="twitter:description" content="A demo blog created for the L2-DGT class at Kingsway School.">
     <meta property="twitter:image" content="/assets/img/cover.png">
+
+    <!-- Plausible Analytics -->
+    <script defer data-domain="l2dgt-blog.school.izmichael.com" src="https://analytics.izmichael.com/js/script.js"></script>
 </svelte:head>
 
 <script lang="ts">
