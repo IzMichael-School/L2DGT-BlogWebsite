@@ -14,11 +14,11 @@
     };
 </script>
 
-<div class="flex flex-row justify-start items-center w-full h-[4.5rem] bg-slate-100 border-t-2 border-gray-200">
+<div class="flex lg:flex-row flex-col justify-start items-center w-full h-[4.5rem] bg-slate-100 border-t-2 border-gray-200">
     <!-- Copyright notice, links to my personal site -->
-    <a class="flex-1 px-5 text-2xl text-left hover:underline" href="https://izmichael.com/">&copy; IzMichael 2023 - Produced for L2-DGT</a>
+    <a class="flex-1 px-5 text-2xl text-left lg:py-0 py-2 hover:underline" href="https://izmichael.com/">&copy; IzMichael 2023 - Produced for L2-DGT</a>
 
-    <div id="social-gradient" class="flex flex-row items-center justify-around flex-1 h-full px-[2%] gap-[2%]">
+    <div id="social-gradient" class="flex flex-row items-center justify-around lg:flex-1 w-full lg:w-auto h-full px-[7%] lg:px-[2%] gap-[2%]">
         {#each socials as link}
             <!-- Social Link, wrapped in Svelte-Each for simple iteration -->
             <a class="group flex items-center justify-center h-full px-10 flex-1" href={link.url}>
@@ -30,7 +30,17 @@
 
 <style>
     #social-gradient {
+        --grad-angle: 90deg;
+    }
+
+    @media (min-width: 1024px) {
+        #social-gradient {
+            --grad-angle: 120deg;
+        }
+    }
+
+    #social-gradient {
         /* Gradient for social buttons, 20% per icon, with a 2% gap for smoothing */
-        background: linear-gradient(120deg, rgb(241, 245, 249) 5%,#1DA1F2 7%, #1DA1F2 27%, #4267B2 29%, #4267B2 49%, #E1306C 51%, #E1306C 71%, #000000 73%, #000000 93%, rgb(241, 245, 249) 95%);
+        background: linear-gradient(var(--grad-angle), rgb(241, 245, 249) 5%,#1DA1F2 7%, #1DA1F2 27%, #4267B2 29%, #4267B2 49%, #E1306C 51%, #E1306C 71%, #000000 73%, #000000 93%, rgb(241, 245, 249) 95%);
     }
 </style>

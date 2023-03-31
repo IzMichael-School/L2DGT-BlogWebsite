@@ -22,6 +22,7 @@
     // Import other libraries, GFM CSS
     import { postStyle, invertColor } from '$lib/stores';
     import { onMount } from 'svelte';
+    import { browser } from '$app/environment';
     import '/src/gfm.css';
 
     // Reactively update store for tab with current category, used for header colouring
@@ -29,14 +30,14 @@
 
     // Declare variables
     let content: HTMLDivElement,
-        parent: HTMLDivElement,
-        wrapper: HTMLDivElement,
         anchorlist: HTMLElement[] = [],
         titleEl: HTMLHeadingElement,
         options = false;
 
     // When page loads
     onMount(() => {
+        // Fix default width if on mobile
+        if (browser && window.innerWidth < 1024 && $postStyle.width == '66.667%') $postStyle.width = '100%';
         // List numbers as words
         let numbers = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
         // Get every element within the post body that is a heading
@@ -89,7 +90,7 @@
 
     <!-- Reading Options -->
     <!-- Ribbon with page settings icon, click function shows modal -->
-    <button class="fixed lg:top-[4rem] top-[7.5rem] right-5 cursor-pointer flex flex-col justify-center items-center" on:click={() => options = true}>
+    <button class="absolute top-0 right-5 cursor-pointer flex flex-col justify-center items-center" on:click={() => options = true}>
         <Ribbon color={post.expand.category.color} width="2.5rem">
             <img src="/assets/icons/page-settings.svg" class="w-8 h-8 aspect-square my-2 {invertColor(post.expand.category.color) == '#000000' ? '' : 'invert'}" alt="Settings Icon" />
         </Ribbon>

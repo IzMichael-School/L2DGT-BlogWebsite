@@ -23,9 +23,9 @@
     </div>
     
     <div class="flex flex-col justify-center items-start flex-1">
-        <h1 class="text-lg font-bold">{post.title}</h1>
-        <h2 class="text-left">By {post.expand.author.username} - {post.expand.category.name}</h2>
-        <h3 class="text-left">{dayjs(post.publishedAt).format('MMM Do, YYYY - HH:mm a')}</h3>
+        <h1 class="text-base lg:text-lg font-bold">{post.title}</h1>
+        <h2 class="text-sm lg:text-base text-left">By {post.expand.author.username} - {post.expand.category.name}</h2>
+        <h3 class="text-sm lg:text-base text-left">{dayjs(post.publishedAt).format('MMM Do, YYYY - HH:mm a')}</h3>
     </div>
 </button>
 

@@ -112,11 +112,11 @@
     };
 </script>
 
-<div id="site" class="flex flex-col items-center justify-center w-screen h-screen max-h-screen overflow-hidden font-sans">
+<div id="site" class="flex flex-col items-center justify-center w-screen h-[100dvh] max-h-[100dvh] overflow-hidden font-sans">
     <!-- Site header bar -->
-    <div id="header" class="bg-slate-100 z-50 flex flex-row flex-wrap items-center justify-start w-full h-16 px-4 pl-0 pb-0 shadow-md">
+    <div id="header" class="bg-slate-100 z-50 flex flex-row flex-wrap items-center justify-start w-full gap-2 lg:gap-0 lg:h-16 px-4 lg:pl-0 lg:pb-0 pb-2 shadow-md">
         <!-- Side padding for when sidebar is in view -->
-        <div class="aspect-square relative mr-2 h-16 border-gray-200 {$anchors.length > 0 ? 'w-16 border-r-2' : 'w-0 border-r-0'}"></div>
+        <div class="aspect-square relative lg:mr-2 h-16 border-gray-200 {$anchors.length > 0 ? 'lg:w-16 lg:border-r-2 w-0 border-r-0' : 'w-0 border-r-0'}"></div>
         
         <!-- Favicon and title, links back to home page -->
         <a href="/" class="flex flex-row justify-start items-center group">
@@ -133,7 +133,7 @@
     </div>
     <!-- Site sidebar, only visible on post pages -->
     <div class="flex flex-row items-center justify-center flex-1 w-full max-h-full overflow-y-auto">
-        <div id="sidebar" class="bg-slate-100 flex flex-col items-center justify-between max-h-full overflow-y-scroll overflow-x-hidden h-full border-gray-200 {$anchors.length > 0 ? 'w-16' : 'w-0'}">
+        <div id="sidebar" class="bg-slate-100 hidden lg:flex flex-col items-center justify-between max-h-full overflow-y-scroll overflow-x-hidden h-full border-gray-200 {$anchors.length > 0 ? 'w-16' : 'w-0'}">
             <!-- Jump to top of page -->
             <button class="aspect-square w-16 h-16 p-2" on:click={() => document.getElementById('anchor-top')?.scrollIntoView({
                 behavior: 'smooth',
@@ -189,8 +189,8 @@
 
 <!-- If page is loading, show spinner -->
 {#if $navigating}
-    <div class="w-screen h-screen overflow-hidden flex justify-center items-center absolute inset-0 z-[1000] bg-black/50">
-        <div class="aspect-square p-10 h-1/2 rounded-lg overflow-hidden z-[1000000000000] bg-white shadow-2xl flex flex-col justify-center items-center" transition:fade|local>
+    <div class="w-screen h-screen overflow-hidden lg:p-0 p-5 flex justify-center items-center absolute inset-0 z-[1000] bg-black/50">
+        <div class="aspect-square p-10 lg:h-1/2 w-full lg:w-auto rounded-lg overflow-hidden z-[1000000000000] bg-white shadow-2xl flex flex-col justify-center items-center" transition:fade|local>
             <Spinner />
             <h1 class="font-inter mt-10 text-6xl">Loading...</h1>
         </div>

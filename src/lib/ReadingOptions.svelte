@@ -34,16 +34,16 @@
     const dispatch = createEventDispatcher();
 </script>
 
-<div class="w-screen h-screen overflow-hidden flex justify-center items-center absolute inset-0 z-[100000] bg-black/50" use:portal={'#site'}>
-    <div class="w-3/4 h-3/4 bg-white shadow-xl rounded-lg relative p-5 flex flex-col justify-center items-center">
+<div class="w-screen h-screen max-h-screen overflow-hidden lg:p-0 p-5 flex justify-center items-center absolute inset-0 z-[100000] bg-black/50" use:portal={'#site'}>
+    <div class="lg:w-3/4 lg:h-3/4 w-full h-full overflow-y-auto bg-white shadow-xl rounded-lg relative p-5 flex flex-col lg:justify-center justify-start items-center">
         <!-- Modal close button -->
         <button class="p-2 absolute top-0 right-0 hover:invert-[0.5]" on:click={() => dispatch('close')}>
             <img src="/assets/icons/cross.svg" class="w-8 h-8 aspect-square" alt="Cross Icon" />
         </button>
 
         <h1 class="text-3xl font-bold mb-10">Reading Options</h1>
-        <div class="flex flex-row justify-center items-center w-full gap-10">
-            <div class="flex flex-col justify-start items-center h-full flex-1">
+        <div class="flex lg:flex-row flex-col lg:justify-center justify-start items-center w-full gap-10">
+            <div class="flex flex-col justify-start items-center lg:h-full lg:flex-1 w-full">
                 <h2 class="text-xl font-bold mb-3">Page Colour</h2>
                 {#each bgColors as color}
                     <button class="p-2 hover:bg-gray-200 active:bg-gray-300 rounded-lg flex flex-row justify-center items-center w-full" on:click={() => $postStyle.backgroundColor = color.value}>
@@ -52,7 +52,7 @@
                     </button>
                 {/each}
             </div>
-            <div class="flex flex-col justify-start items-center h-full flex-1">
+            <div class="flex flex-col justify-start items-center lg:h-full lg:flex-1 w-full">
                 <h2 class="text-xl font-bold mb-3">Font Size</h2>
                 {#each fontSizes as size}
                     <button class="p-2 hover:bg-gray-200 active:bg-gray-300 rounded-lg flex flex-row justify-center items-center w-full" on:click={() => $postStyle.fontSize = size.value}>
@@ -61,7 +61,7 @@
                     </button>
                 {/each}
             </div>
-            <div class="flex flex-col justify-start items-center h-full flex-1">
+            <div class="flex flex-col justify-start items-center lg:h-full lg:flex-1 w-full">
                 <h2 class="text-xl font-bold mb-3">Font Style</h2>
                 {#each fonts as font}
                     <button class="p-2 hover:bg-gray-200 active:bg-gray-300 rounded-lg flex flex-row justify-center items-center w-full" on:click={() => $postStyle.fontFamily = `${font.value}, ${font.fallback}`} style="font-family: {font.value}, {font.fallback};">
