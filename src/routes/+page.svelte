@@ -90,13 +90,9 @@
     }
 
     /* Vertical text */
-    .vertical {
-        writing-mode: vertical-lr;
-        transform: rotate(180deg);
-    }
 
     @media (min-width: 1024px) {
-        .vertical {
+        .lg\:vertical {
             writing-mode: vertical-lr;
             transform: rotate(180deg);
         }
