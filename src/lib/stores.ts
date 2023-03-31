@@ -6,6 +6,7 @@ import type { Anchor, PostStyle } from '$lib/types';
 
 // Initialise Database SDK
 export const pb: PocketBase = new PocketBase('https://l2dgt-blog-db.school.izmichael.com');
+pb.autoCancellation(false);
 // Sidebar heading list
 export const anchors: Writable<Anchor[]> = writable([]);
 // Tab id for post view
