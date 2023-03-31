@@ -57,4 +57,11 @@ export interface Anchor {
     name: string,
     id: string,
     heading: HTMLElement
-}
+};
+
+export interface PostStyle {
+    backgroundColor: string,
+    fontSize: string,
+    fontFamily: string,
+    width: string
+};

@@ -2,7 +2,7 @@
 import { writable } from 'svelte/store';
 import PocketBase from 'pocketbase';
 import type { Writable } from 'svelte/store';
-import type { Anchor } from '$lib/types';
+import type { Anchor, PostStyle } from '$lib/types';
 
 // Initialise Database SDK
 export const pb: PocketBase = new PocketBase('https://l2dgt-blog-db.school.izmichael.com');
@@ -10,6 +10,13 @@ export const pb: PocketBase = new PocketBase('https://l2dgt-blog-db.school.izmic
 export const anchors: Writable<Anchor[]> = writable([]);
 // Tab id for post view
 export const tab: Writable<string> = writable('');
+// Store for post styles
+export const postStyle: Writable<PostStyle> = writable({
+    backgroundColor: 'rgb(250, 250, 250)',
+    fontSize: '1rem',
+    fontFamily: 'IBM Plex Sans, sans-serif',
+    width: '66.666%'
+});
 
 // Pick whether black or white contrasts better with the provided colour.
 export function invertColor(hex: string, bw = true): string {

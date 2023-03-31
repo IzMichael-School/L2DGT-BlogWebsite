@@ -20,7 +20,7 @@
     import ReadingOptions from '$lib/ReadingOptions.svelte';
     
     // Import other libraries, GFM CSS
-    import { invertColor } from '$lib/stores';
+    import { postStyle, invertColor } from '$lib/stores';
     import { onMount } from 'svelte';
     import '/src/gfm.css';
 
@@ -60,11 +60,11 @@
     });
 </script>
 
-<div class="bg-salt flex flex-col items-center justify-start w-full relative" bind:this={wrapper}>
+<div class="flex flex-col items-center justify-start w-full relative" style="background-color: {$postStyle.backgroundColor};">
     <!-- Anchor for sidebar jumping -->
     <span id="anchor-top" class="invisible block h-0 px-1 overflow-hidden" />
 
-    <div class="h-full px-5 pt-10" style="width: 66.6%;" bind:this={parent}>
+    <div class="h-full px-5 lg:pt-10 pt-20" style="width: {$postStyle.width};">
         <!-- Cover image -->
         <figure>
             <img src="https://l2dgt-blog-db.school.izmichael.com/api/files/posts/{post.id}/{post.image}" class="max-h-[50vh] max-w-full mx-auto rounded-lg" title={post.imageAlt} alt={post.imageAlt}>
@@ -78,7 +78,7 @@
         <h3 class="w-full mt-1 text-lg font-medium text-center">{dayjs(post.publishedAt).format('dddd, Do MMMM YYYY - HH:mm a')}</h3>
 
         <!-- Post content, styled with GFM -->
-        <div id="postContent" class="markdown-body w-full py-10" bind:this={content}>
+        <div id="postContent" class="markdown-body w-full py-10" style="font-size: {$postStyle.fontSize}; font-family: {$postStyle.fontFamily};">
             <!-- eslint-disable-next-line svelte/no-at-html-tags -->
             {@html data.content}
         </div>
@@ -89,7 +89,7 @@
 
     <!-- Reading Options -->
     <!-- Ribbon with page settings icon, click function shows modal -->
-    <button class="fixed top-[4rem] right-5 cursor-pointer flex flex-col justify-center items-center" on:click={() => options = true}>
+    <button class="fixed lg:top-[4rem] top-[7.5rem] right-5 cursor-pointer flex flex-col justify-center items-center" on:click={() => options = true}>
         <Ribbon color={post.expand.category.color} width="2.5rem">
             <img src="/assets/icons/page-settings.svg" class="w-8 h-8 aspect-square my-2 {invertColor(post.expand.category.color) == '#000000' ? '' : 'invert'}" alt="Settings Icon" />
         </Ribbon>
@@ -97,7 +97,7 @@
 
     <!-- If variable to show reading options is true, show reading options modal component -->
     {#if options}
-        <ReadingOptions on:close={() => options = false} mdBody={content} mdParent={parent} mdWrapper={wrapper} />
+        <ReadingOptions on:close={() => options = false} />
     {/if}
     
     <!-- Anchor for sidebar jumping -->
