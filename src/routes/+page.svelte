@@ -3,6 +3,7 @@
 </svelte:head>
 
 <script lang="ts">
+    // Import components, types, libraries
     import GridPost from '$lib/GridPost.svelte';
     import Footer from '$lib/Footer.svelte';
     import Spinner from '$lib/Spinner.svelte';
@@ -20,6 +21,7 @@
     let submitting = false;
 </script>
 
+<!-- Hero section, image grid -->
 <section class="p-5 grid grid-cols-4 grid-rows-2 gap-5 snap">
     <GridPost width={2} height={2} post={data.posts[0]} />
     {#each data.posts.slice(1) as post}
@@ -28,8 +30,10 @@
 </section>
 
 <section class="flex flex-row flex-wrap justify-center items-center p-10 relative snap bg-navy text-white">
+    <!-- Tweak wording when plural authors -->
     <h1 class="text-4xl vertical px-10 absolute top-0 bottom-0 font-bold left-0 h-full text-center">Who {data.authors.length > 1 ? 'Are We?' : 'Am I'}?</h1>
 
+    <!-- Support multiple authors -->
     {#each data.authors as author}
         <div class="flex-1 min-w-[33%] max-w-[75%] flex flex-col justify-center items-center">
             <img src="https://l2dgt-blog-db.school.izmichael.com/api/files/authors/{author.id}/{author.avatar}" class="w-32 h-32 aspect-square rounded-full" alt="{author.username}'s Profile Picture" />
@@ -57,10 +61,13 @@
         <textarea name="message" class="h-48" placeholder="What do you have to say?" />
         <br>
         <div class="w-full flex flex-row justify-between items-center">
+            <!-- Cloudflare Turnstile - Alternate to ReCaptcha -->
             <Turnstile siteKey="0x4AAAAAAADMCwMvIGE8RdlL" />
+            <!-- Submit button -->
             <button type="submit" value="submit" on:click={() => submitting = true} class="p-2 rounded-lg w-1/3 bg-navy text-white font-bold hover:brightness-150 active:brightness-100">Send</button>
         </div>
         {:else}
+            <!-- Loading icon for while server processes -->
             <Spinner />
         {/if}
         {#if form?.error}
@@ -72,20 +79,30 @@
 <Footer />
 
 <style>
+    /* Scroll snapping stuff */
     section {
         width: 100%;
-        height: calc(100vh - 4rem);
+        min-height: calc(100vh - 4rem);
     }
 
     .snap {
         scroll-snap-align: center;
     }
 
+    /* Vertical text */
     .vertical {
         writing-mode: vertical-lr;
         transform: rotate(180deg);
     }
 
+    @media (min-width: 1024px) {
+        .vertical {
+            writing-mode: vertical-lr;
+            transform: rotate(180deg);
+        }
+    }
+
+    /* Contact form elements */
     #contact p {
         @apply text-left w-full text-lg mb-2;
     }

@@ -1,7 +1,11 @@
+/* Global Stylesheet, affects EVERYTHING */
+
+/* Import Tailwind styles */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Fix default wackiness */
 html,
 body {
     width: 100vw;
@@ -9,6 +13,7 @@ body {
     overflow: hidden;
 }
 
+/* Animate EVERYTHING, disable default outlines, because ugly */
 * {
     transition-property: all;
     transition-duration: 300ms;
@@ -17,6 +22,7 @@ body {
     outline: none;
 }
 
+/* Useful for overflow prevention */
 .wrap-long {
     overflow-wrap: break-word;
     word-wrap: break-word;
@@ -24,6 +30,7 @@ body {
     /* hyphens: auto; */
 }
 
+/* Some colouring, pulled from different components, so necessary to be within this file for JIT compliation */
 .active-heading {
     --hl-color: #6a7fdb;
     box-shadow: 0px 0px 5px 0.5rem var(--hl-color);
@@ -33,32 +40,29 @@ body {
     color: #ffffff;
 }
 
-/* width */
-::-webkit-scrollbar {
-    width: 3px;
-    height: 3px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-    background: rgb(229, 231, 235);
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 9999px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
-
+/* Simple link styles */
 a:hover {
     text-decoration: underline;
 }
 
+/* Fixes wackiness with JIT compilation */
 .markdown-body img {
     @apply rounded-lg;
+}
+
+/* Scrollbar Styling */
+/* mozilla pls implement this asap */
+::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+}
+::-webkit-scrollbar-track {
+    background: rgb(229, 231, 235);
+}
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }

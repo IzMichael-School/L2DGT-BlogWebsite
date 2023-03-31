@@ -1,3 +1,6 @@
+/* GitHub Flavoured Markdown by Sindre Sorhus - https://github.com/sindresorhus/github-markdown-css */
+/* The minimal amount of CSS to replicate the GitHub Markdown style - MIT Licensed */
+
 @media (prefers-color-scheme: dark) {
     .markdown-body {
         color-scheme: dark;

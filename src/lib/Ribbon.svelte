@@ -1,12 +1,16 @@
 <script lang="ts">
+    // Import Component Attributes
     export let color: string, width: string;
 </script>
 
+<!-- Ribbon tag element -->
 <div class="ribbon" style="--color: {color}; --width: {width};">
+    <!-- Svelte slot component -->
 	<slot />
 </div>
 
 <style>
+    /* Ribbon box styles */
     .ribbon {
         background: var(--color);
         display: block;
@@ -18,6 +22,7 @@
         z-index: 1000;
     }
 
+    /* Ribbon inverse arrow styles */
     .ribbon:after {
         content: "";
         width: 100%;

@@ -1,7 +1,11 @@
 <script lang="ts">
+    // Import Component Attributes
     export let mdBody: HTMLDivElement, mdParent: HTMLDivElement, mdWrapper: HTMLDivElement;
-    import { createEventDispatcher } from 'svelte';
+
+    // Import portal library
     import { portal } from 'svelte-portal';
+
+    // Create arrays of page option values
     let bgColors = [
             { value: '#FAFAFA', label: 'Salt' },
             { value: '#F1E9D2', label: 'Parchment' },
@@ -22,11 +26,15 @@
             { value: '75%', label: 'Three Quarters', symbol: '¾' },
             { value: '100%', label: 'Full', symbol: '1' }
         ];
+    
+    // Component event generation
+    import { createEventDispatcher } from 'svelte';
     const dispatch = createEventDispatcher();
 </script>
 
 <div class="w-screen h-screen overflow-hidden flex justify-center items-center absolute inset-0 z-[100000] bg-black/50" use:portal={'#site'}>
     <div class="w-3/4 h-3/4 bg-white shadow-xl rounded-lg relative p-5 flex flex-col justify-center items-center">
+        <!-- Modal close button -->
         <button class="p-2 absolute top-0 right-0 hover:invert-[0.5]" on:click={() => dispatch('close')}>
             <img src="/assets/icons/cross.svg" class="w-8 h-8 aspect-square" alt="Cross Icon" />
         </button>
