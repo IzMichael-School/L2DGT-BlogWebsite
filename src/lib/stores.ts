@@ -15,7 +15,7 @@ export const postStyle: Writable<PostStyle> = writable({
     backgroundColor: 'rgb(250, 250, 250)',
     fontSize: '1rem',
     fontFamily: 'IBM Plex Sans, sans-serif',
-    width: '66.666%'
+    width: '66.667%'
 });
 
 // Pick whether black or white contrasts better with the provided colour.
